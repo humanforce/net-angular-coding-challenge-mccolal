@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 using SprintSummary.server.Models.PublicHolidays;
-using SprintSummary.server.Models.Regionn;
+using SprintSummary.server.Models.RegionItem;
 using System.Dynamic;
 
 namespace SprintSummary.server.Repository
@@ -21,6 +21,11 @@ namespace SprintSummary.server.Repository
                     string responseString = bph.Read();
 
                     dynamic googleAPIResponseModel = JsonConvert.DeserializeObject<ExpandoObject>(responseString);
+
+                    if (googleAPIResponseModel == null)
+                    {
+                        googleAPIResponseModel = new ExpandoObject();
+                    }
 
                     foreach (var itm in googleAPIResponseModel.items)
                     {

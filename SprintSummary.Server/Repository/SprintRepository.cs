@@ -21,6 +21,10 @@ namespace SprintSummary.server.Repository
                 var data = this.Read();
 
                 RawSprintDataResponseModel responseModel = JsonConvert.DeserializeObject<RawSprintDataResponseModel>(data);
+                if (responseModel == null)
+                {
+                    responseModel = new();
+                }
                 
                 _sprints = responseModel.values
                     .Select(x => new SprintModel()

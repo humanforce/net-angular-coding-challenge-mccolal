@@ -1,5 +1,4 @@
-﻿using SprintSummary.server.Models.JiraData;
-using SprintSummary.server.Models.JiraUser;
+﻿using SprintSummary.server.Models.JiraUser;
 
 namespace SprintSummary.server.Models.Interfaces
 {

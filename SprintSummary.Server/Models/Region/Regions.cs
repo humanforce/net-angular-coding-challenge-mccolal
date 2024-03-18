@@ -1,6 +1,6 @@
 ﻿using AngularApp3.Server.Helpers;
 
-namespace SprintSummary.server.Models.Regionn
+namespace SprintSummary.server.Models.RegionItem
 {
     public class Regions
     {

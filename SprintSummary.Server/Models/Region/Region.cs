@@ -1,4 +1,4 @@
-﻿namespace SprintSummary.server.Models.Regionn
+﻿namespace SprintSummary.server.Models.RegionItem
 {
     public class Region
     {

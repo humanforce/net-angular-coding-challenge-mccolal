@@ -17,6 +17,10 @@ namespace SprintSummary.server.Repository
             {
                 var data = this.Read();
                 _users = JsonConvert.DeserializeObject<List<JiraUserModel>>(data);
+                if (_users == null)
+                {
+                    _users = new List<JiraUserModel>();
+                }
             }
             catch (JsonException e)
             {

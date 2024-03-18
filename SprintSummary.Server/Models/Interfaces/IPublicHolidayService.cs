@@ -1,5 +1,5 @@
 ﻿using SprintSummary.server.Models.PublicHolidays;
-using SprintSummary.server.Models.Regionn;
+using SprintSummary.server.Models.RegionItem;
 
 namespace SprintSummary.server.Models.Interfaces
 {

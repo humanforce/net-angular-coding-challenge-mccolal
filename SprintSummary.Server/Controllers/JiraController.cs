@@ -3,6 +3,7 @@ using AngularApp3.Server.Services;
 using Microsoft.AspNetCore.Mvc;
 using SprintSummary.server.Models.Capacity;
 using SprintSummary.server.Models.Interfaces;
+using SprintSummary.server.Models.JiraData;
 using SprintSummary.server.Models.RawResponses;
 using System.Collections.Generic;
 
@@ -24,7 +25,7 @@ namespace SprintSummary.Server.Controllers
         [HttpGet]
         public IActionResult Get()
         {
-            List<Issue> issues = _jiraDataService.FetchAllJiras();
+            List<JiraModel> issues = _jiraDataService.FetchAllJiras();
 
             return Ok(issues);
         }
@@ -32,7 +33,7 @@ namespace SprintSummary.Server.Controllers
         [HttpGet("{sprintId}")]
         public IActionResult GetJirasBySprintId(int sprintId)
         {
-            List<Issue> issues = _jiraDataService.GetJirasBySprintId(sprintId);
+            List<JiraModel> issues = _jiraDataService.GetJirasBySprintId(sprintId);
             return Ok(issues);
         }
 

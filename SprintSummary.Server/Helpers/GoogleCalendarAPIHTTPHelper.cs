@@ -1,7 +1,7 @@
 ﻿using AngularApp3.Server.Helpers;
 using Newtonsoft.Json;
 using SprintSummary.server.Models.PublicHolidays;
-using SprintSummary.server.Models.Regionn;
+using SprintSummary.server.Models.RegionItem;
 using System.Dynamic;
 
 namespace SprintSummary.server.Helpers

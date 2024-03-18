@@ -1,7 +1,7 @@
 ﻿using SprintSummary.server.Models.Interfaces;
 using SprintSummary.server.Models.JiraUser;
 using SprintSummary.server.Models.PublicHolidays;
-using SprintSummary.server.Models.Regionn;
+using SprintSummary.server.Models.RegionItem;
 using SprintSummary.server.Models.Sprint;
 
 namespace AngularApp3.Server.Services

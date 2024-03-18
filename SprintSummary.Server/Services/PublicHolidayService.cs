@@ -2,7 +2,7 @@
 using SprintSummary.server.Helpers;
 using SprintSummary.server.Models.Interfaces;
 using SprintSummary.server.Models.PublicHolidays;
-using SprintSummary.server.Models.Regionn;
+using SprintSummary.server.Models.RegionItem;
 using SprintSummary.server.Repository;
 using SprintSummary.Server.Models;
 

@@ -1,6 +1,6 @@
 ﻿using AngularApp3.Server.Helpers;
 using Newtonsoft.Json;
-
+using SprintSummary.server.Models.JiraData;
 using SprintSummary.server.Models.RawResponses;
 
 
@@ -9,25 +9,31 @@ namespace SprintSummary.server.Repository
     public class JiraDataRepository : BaseRepository
     {
         
-        private List<Issue> _jiraData = new List<Issue>();
+        private List<JiraModel> _jiraData = new List<JiraModel>();
 
         public JiraDataRepository() : base(Paths.JiraBacklogJson){}
 
-        public List<Issue> GetAllJiraData()
+        public List<JiraModel> GetAllJiraData()
         {
             try
             {
                 var data = Read();
 
                 RawJiraDataResponseModel responseModel = JsonConvert.DeserializeObject<RawJiraDataResponseModel>(data);
+
+                if (responseModel == null)
+                {
+                    responseModel = new RawJiraDataResponseModel(); ;
+                }
+
                 var targetList = responseModel.issues
-                    .Select(x => new Issue()
+                    .Select(x => new JiraModel()
                     {
                         id = x.id,
                         expand = x.expand,
                         self = x.self,
                         key = x.key,
-                        fields = new Fields()
+                        fields = new Properties()
                         {
                             /* Alex M: Using customfield_xxxx is not intuitive.  A mapper 
                              * should be used to map the poorly named properties from the raw 
@@ -39,13 +45,23 @@ namespace SprintSummary.server.Repository
                              * status.name          -       Jira status (To Do, Done, etc).
                              * status.priority      -       Low, Medium, High, etc
                              */
-                            customfield_10016 = x.fields.customfield_10016,
-                            customfield_10020 = x.fields.customfield_10020,
-                            status = new Models.RawResponses.Status()
+                            StoryPoints = x.fields.customfield_10016,
+                            Sprints = x.fields.customfield_10020
+                                .Select(x => new Sprint()
+                                {
+                                    id=x.id,
+                                    name = x.name,
+                                    state = x.state,
+                                    boardId = x.boardId,
+                                    goal = x.goal,
+                                    startDate = x.startDate,
+                                    endDate = x.endDate
+                                }).ToList(),
+                            Status = new Models.JiraData.Status()
                             {
                                 name = x.fields.status.name
                             },
-                            priority = new Priority()
+                            Priority = new Models.JiraData.Priority()
                             {
                                 name = x.fields.priority.name
                             }

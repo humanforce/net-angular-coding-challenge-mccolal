@@ -1,5 +1,6 @@
 ﻿using SprintSummary.server.Models.Capacity;
 using SprintSummary.server.Models.Interfaces;
+using SprintSummary.server.Models.JiraData;
 using SprintSummary.server.Models.RawResponses;
 using SprintSummary.server.Models.Sprint;
 using SprintSummary.server.Repository;
@@ -14,15 +15,15 @@ namespace AngularApp3.Server.Services
             _jiraDataRepository = new JiraDataRepository();
         }
 
-        public List<Issue> FetchAllJiras()
+        public List<JiraModel> FetchAllJiras()
         {
             return _jiraDataRepository.GetAllJiraData();
         }
 
-        public List<Issue> GetJirasBySprintId(int scrumId)
+        public List<JiraModel> GetJirasBySprintId(int scrumId)
         {
-            List<Issue> allJiras = FetchAllJiras();
-            List<Issue> jirasWithinSprintId = allJiras.FindAll(x => x.fields.customfield_10020.FirstOrDefault(y => y.id == scrumId) != null
+            List<JiraModel> allJiras = FetchAllJiras();
+            List<JiraModel> jirasWithinSprintId = allJiras.FindAll(x => x.fields.Sprints.FirstOrDefault(y => y.id == scrumId) != null
             );
             return jirasWithinSprintId;
         }
@@ -33,26 +34,26 @@ namespace AngularApp3.Server.Services
             CapacityStatisticsModel response = new CapacityStatisticsModel();
             int lowerSprintID = Math.Max(sprintId - previousSprintCount, 0);
 
-            List<Issue> allJiras = FetchAllJiras();
-            List<Issue> issuesInCurrentSprint = allJiras
+            List<JiraModel> allJiras = FetchAllJiras();
+            List<JiraModel> issuesInCurrentSprint = allJiras
                 .FindAll(x =>
-                    x.fields.customfield_10020
+                    x.fields.Sprints
                         .FirstOrDefault(y => y.id == sprintId) != null);
 
-            List<Issue> completedIssuesInPreviousSprints = allJiras
+            List<JiraModel> completedIssuesInPreviousSprints = allJiras
                 .FindAll(x =>
-                    x.fields.customfield_10020
+                    x.fields.Sprints
                         .Find(y =>
                             y.id < sprintId && y.id >= lowerSprintID) != null
-                    && x.fields.status.name.ToLower() == "done"        
+                    && x.fields.Status.name.ToLower() == "done"        
                             );
 
             List<SprintVelocityModel> completedStoryPointsBySprint = completedIssuesInPreviousSprints
                 .Select(issue =>
                     new SprintVelocityModel()
                     {
-                        SprintId = issue.fields.customfield_10020.FirstOrDefault().id,
-                        CompletedStoryPoints = issue.fields.customfield_10016
+                        SprintId = issue.fields.Sprints.FirstOrDefault().id,
+                        CompletedStoryPoints = issue.fields.StoryPoints
                     }).ToList();
 
             response.SprintStatistics = completedStoryPointsBySprint
