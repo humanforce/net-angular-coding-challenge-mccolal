@@ -6,12 +6,12 @@ using SprintSummary.server.Models.RawResponses;
 
 namespace SprintSummary.server.Repository
 {
-    public class JiraDataRepository : BaseRepository
+    public class JiraRepository : BaseRepository
     {
         
         private List<JiraModel> _jiraData = new List<JiraModel>();
 
-        public JiraDataRepository() : base(Paths.JiraBacklogJson){}
+        public JiraRepository() : base(Paths.JiraBacklogJson){}
 
         public List<JiraModel> GetAllJiraData()
         {
@@ -35,16 +35,6 @@ namespace SprintSummary.server.Repository
                         key = x.key,
                         fields = new Properties()
                         {
-                            /* Alex M: Using customfield_xxxx is not intuitive.  A mapper 
-                             * should be used to map the poorly named properties from the raw 
-                             * JSON string, to properly name properties that are easily ledgible. 
-                             * 
-                             * Dictionary for the below is as follows:
-                             * customfield_10016    -       Story Points
-                             * customfield_10020    -       Sprint Information
-                             * status.name          -       Jira status (To Do, Done, etc).
-                             * status.priority      -       Low, Medium, High, etc
-                             */
                             StoryPoints = x.fields.customfield_10016,
                             Sprints = x.fields.customfield_10020
                                 .Select(x => new Sprint()

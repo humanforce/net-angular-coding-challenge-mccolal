@@ -12,7 +12,7 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddSingleton<IJiraUserService, JiraUserService>();
 builder.Services.AddSingleton<IJiraCapacityService, JiraCapacityService>();
-builder.Services.AddSingleton<IJiraDataService, JiraDataService>();
+builder.Services.AddSingleton<IJiraDataService, JiraService>();
 builder.Services.AddSingleton<IPublicHolidayService, PublicHolidayService>();
 builder.Services.AddSingleton<ISprintDataService, SprintDataService>();
 

@@ -1,7 +1,6 @@
 import { Component, Input, SimpleChanges } from '@angular/core';
 import { SprintDataModel } from '../../models/SprintModel';
-import { HttpClient } from '@angular/common/http';
-import { Jira, JiraDataModel } from '../../models/JiraDataModel';
+import { Jira, JiraDataModel } from '../../models/JiraModel';
 import { RestApiService } from '../../Services/HTTPService';
 
 @Component({
@@ -25,6 +24,7 @@ export class JiraListComponent {
     this.restApi.getJiraInfoBySprintId(sprintId).subscribe(
       (result) => {
         this.jiras = result;
+        console.log(result);
       },
       (error) => {
 

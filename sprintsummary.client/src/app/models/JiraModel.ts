@@ -39,7 +39,7 @@ export interface Fields {
   customfield_10025: any
   labels: any
   customfield_10026: any
-  customfield_10016: number
+  storyPoints: number
   customfield_10017: any
   customfield_10018: any
   customfield_10019: any

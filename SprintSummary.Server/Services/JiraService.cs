@@ -8,11 +8,11 @@ using SprintSummary.server.Repository;
 
 namespace AngularApp3.Server.Services
 {
-    public class JiraDataService : IJiraDataService
+    public class JiraService : IJiraDataService
     {
-        private JiraDataRepository _jiraDataRepository;
-        public JiraDataService() {
-            _jiraDataRepository = new JiraDataRepository();
+        private JiraRepository _jiraDataRepository;
+        public JiraService() {
+            _jiraDataRepository = new JiraRepository();
         }
 
         public List<JiraModel> FetchAllJiras()

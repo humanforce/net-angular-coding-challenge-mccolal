@@ -4,7 +4,7 @@ import { Observable, throwError } from 'rxjs';
 import { retry, catchError } from 'rxjs/operators';
 import { PublicHoliday } from '../models/public-holiday';
 import { CapacityStatisticsModel } from '../models/CapacityStatisticsModel';
-import { Jira } from '../models/JiraDataModel';
+import { Jira } from '../models/JiraModel';
 import { SprintCapacityModel } from '../models/UserCapacityModel';
 import { SprintDataModel } from '../models/SprintModel';
 
