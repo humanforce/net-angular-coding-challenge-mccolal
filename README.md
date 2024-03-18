@@ -1,3 +1,20 @@
+#Instructions
+
+
+- Clone the repository using `git clone https://github.com/humanforce/net-angular-coding-challenge-mccolal.git`
+
+##Running the Application
+- There are two options to run the application.
+** Option 1 **
+- Open `run.bat`
+
+** Option 2 **
+- Navigate to `./sprintSummary.client`
+- Open a terminal, and run `npm i`
+- Navigate to `./SprintSummary.Server`
+- Open a terminal, run `dotnet run --launch-profile https`
+
+
 [![Open in Visual Studio Code](https://classroom.github.com/assets/open-in-vscode-718a45dd9cf7e7f842a935f5ebbe5719a5e09af4491e668f4dbf3b35d5cca122.svg)](https://classroom.github.com/online_ide?assignment_repo_id=14343114&assignment_repo_type=AssignmentRepo)
 # Table of Contents
 1. [Scenario](#scenario)

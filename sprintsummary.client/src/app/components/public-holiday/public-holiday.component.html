@@ -1,0 +1,23 @@
+
+
+<table  class="table">
+  <thead>
+    <tr>
+      <th scope="col">Date</th>
+      <th scope="col">Region</th>
+      <th scope="col">Summary</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr
+        
+        *ngFor="let publicHoliday of publicHolidays"
+        >
+      <td>{{ publicHoliday.startDate | date:'dd-MM'}}</td>
+      <td>{{ publicHoliday.region}}</td>
+      <td>{{ publicHoliday.summary }}</td>
+    </tr>
+  </tbody>
+</table>
+
+
