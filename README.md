@@ -1,14 +1,14 @@
-#Instructions
+# Instructions
 
 
 - Clone the repository using `git clone https://github.com/humanforce/net-angular-coding-challenge-mccolal.git`
 
-##Running the Application
+## Running the Application
 - There are two options to run the application.
-** Option 1 **
+**Option 1**
 - Open `run.bat`
 
-** Option 2 **
+**Option 2**
 - Navigate to `./sprintSummary.client`
 - Open a terminal, and run `npm i`
 - Navigate to `./SprintSummary.Server`
