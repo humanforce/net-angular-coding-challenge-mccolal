@@ -1,7 +1,6 @@
 using AngularApp3.Server.Services;
-using Microsoft.Extensions.Options;
+using SprintSummary.server.Models;
 using SprintSummary.server.Models.Interfaces;
-using SprintSummary.Server.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -16,6 +15,8 @@ builder.Services.AddSingleton<IJiraCapacityService, JiraCapacityService>();
 builder.Services.AddSingleton<IJiraDataService, JiraDataService>();
 builder.Services.AddSingleton<IPublicHolidayService, PublicHolidayService>();
 builder.Services.AddSingleton<ISprintDataService, SprintDataService>();
+
+
 
 var app = builder.Build();
 

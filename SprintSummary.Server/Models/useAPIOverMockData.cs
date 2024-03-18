@@ -1,7 +1,8 @@
 ﻿namespace SprintSummary.Server.Models
 {
-    public class useAPIOverMockData
+    public class UseAPIOverMockData
     {
-        public bool IsEnabled { get; set; }
+        public const string UseAPIOverMockService = "UseAPIOverMockService";
+        public bool IsEnabled { get; set; } = false;
     }
 }

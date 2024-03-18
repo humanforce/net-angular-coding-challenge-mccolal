@@ -4,14 +4,17 @@ using SprintSummary.server.Models.Interfaces;
 using SprintSummary.server.Models.PublicHolidays;
 using SprintSummary.server.Models.Regionn;
 using SprintSummary.server.Repository;
+using SprintSummary.Server.Models;
 
 namespace AngularApp3.Server.Services
 {
     public class PublicHolidayService : IPublicHolidayService
     {
         private PublicHolidayRepository _publicHolidayRepository;
-        public PublicHolidayService() {
+        private IConfiguration _configuration;
+        public PublicHolidayService(IConfiguration configuration) {
             this._publicHolidayRepository = new PublicHolidayRepository();
+            this._configuration = configuration;
         }
 
         public List<PublicHolidayModel> GetPublicHolidaysByRegion(Region region)
@@ -66,8 +69,10 @@ namespace AngularApp3.Server.Services
 
         public List<PublicHolidayModel> GetAllPublicHolidays()
         {
-            bool useAPIOverMockData = false && File.Exists(Paths.GoogleCalendarAPIKey);
-            if (useAPIOverMockData)
+            UseAPIOverMockData useAPIOverMockData = new UseAPIOverMockData();
+            _configuration.GetSection(UseAPIOverMockData.UseAPIOverMockService).Bind(useAPIOverMockData);
+            
+            if (useAPIOverMockData.IsEnabled && File.Exists(Paths.GoogleCalendarAPIKey))
             {
                 GoogleCalendarAPIHTTPHelper http = new GoogleCalendarAPIHTTPHelper();
                 return http.GetAllPublicHolidaysAsync().Result;
