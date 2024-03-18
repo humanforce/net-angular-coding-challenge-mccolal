@@ -5,6 +5,7 @@
 
 ## Running the Application
 - There are two options to run the application.
+
 **Option 1**
 - Open `run.bat`
 
