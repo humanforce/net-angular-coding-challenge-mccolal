@@ -1,0 +1,14 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Sprint Number</th>
+      <th scope="col">Velocity</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let x of sprintStatistics">
+      <td>{{x.sprintId}}</td>
+      <td>{{x.completedStoryPoints}} points</td>
+    </tr>
+  </tbody>
+</table>

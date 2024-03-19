@@ -1,0 +1,18 @@
+
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Capacity</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let userCapacity of sprintCapacityList">
+      <td>{{userCapacity.user.name}}</td>
+      <td>{{userCapacity.capacity}}</td>
+    </tr>
+  </tbody>
+</table>
+
+

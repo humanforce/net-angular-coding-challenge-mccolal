@@ -1,0 +1,24 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col"></th>
+      <th scope="col">ID</th>
+      <th scope="col">Key</th>
+      <th scope="col">Priority</th>
+      <th scope="col">Status</th>
+      <th scope="col">Story Points</th>
+      <th scope="col">URL</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let jira of jiras">
+      <th scope="row">#</th>
+      <td>{{jira.id}}</td>
+      <td>{{jira.key}}</td>
+      <td>{{jira.fields.priority.name}}</td>
+      <td>{{jira.fields.status.name}}</td>
+      <td>{{jira.fields.storyPoints}}</td>
+      <td><a href="{{jira.self}}">{{jira.self}}</a></td>
+    </tr>
+</tbody>
+</table>

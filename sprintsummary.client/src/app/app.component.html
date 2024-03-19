@@ -1,0 +1,19 @@
+
+<div class="flex-container-column">
+
+    <app-sprint-navigator class="flex-col-child-nav"
+                          (prevSprint)="prevSprintHandler($event)"
+                          (nxtSprint)="nxtSprinthandler($event)"
+                          [sprintInfo]="sprintInfo"
+                          ></app-sprint-navigator>
+
+  <app-jira-list class="flex-col-child-middle" [sprintInfo]="sprintInfo"></app-jira-list>
+  <div class="flex-container-row flex-col-child-bottom">
+    <app-velocity [sprintInfo]="sprintInfo"></app-velocity>
+    <app-capacity [sprintInfo]="sprintInfo"></app-capacity>
+    <app-public-holiday [sprintInfo]="sprintInfo"></app-public-holiday>
+  </div>
+</div>
+
+
+

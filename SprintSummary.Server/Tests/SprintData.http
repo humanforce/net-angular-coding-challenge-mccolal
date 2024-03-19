@@ -1,0 +1,15 @@
+# For more info on HTTP files go to https://aka.ms/vs/httpfile
+
+
+@AngularApp3.Server_HostAddress = http://localhost:5098
+
+###
+
+GET {{AngularApp3.Server_HostAddress}}/sprint/4
+Accept: application/json
+###
+
+
+GET {{AngularApp3.Server_HostAddress}}/sprint/2023-02-01/4
+Accept: application/json
+###

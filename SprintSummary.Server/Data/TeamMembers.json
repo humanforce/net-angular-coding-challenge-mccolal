@@ -4,7 +4,7 @@
     "Name": "Muhammad",
     "Location": {
       "Id": "c16aa679-910a-4955-a225-1a13f9b8f607",
-      "Country": "Pakistan",
+      "Country": "Packistan",  
       "Region": "Karachi"
     }
   },
@@ -22,7 +22,7 @@
     "Name": "Maria",
     "Location": {
       "Id": "20c695f3-b8ae-46c2-96a4-031b5f03855d",
-      "Country": "Philippines",
+      "Country": "Phillipines",
       "Region": "Manila"
     }
   }
